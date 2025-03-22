@@ -1,2 +1,8 @@
 fastapi
 uvicorn
+sqlalchemy
+python-dotenv
+pathlib
+psycopg2-binary
+passlib
+pydantic
