@@ -1,0 +1,26 @@
+import { Component } from '@angular/core';
+import { AuthStateService } from '../../services/auth-state.service';
+import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { ButtonComponent } from '../../common/button/button.component';
+
+@Component({
+  selector: 'app-login',
+  imports: [FormsModule, ButtonComponent],
+  templateUrl: './login.component.html',
+  styleUrl: './login.component.scss'
+})
+export class LoginComponent {
+
+  login_prop: String = "";
+  password_prop: String = "";
+
+  constructor(private authStateService: AuthStateService, private router: Router){}
+  goBackHome(){
+    this.router.navigate(['/']);
+  }
+  login = () : void =>{
+    alert(this.login_prop + ' ' + this.password_prop)
+    this.authStateService.setLoggedIn(true);
+  }
+}
