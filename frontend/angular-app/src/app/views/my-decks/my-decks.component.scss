@@ -1,0 +1,48 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  color: #f1f1f1;
+  main {
+    width: calc(100% - 300px);
+  }
+}
+.side-menu {
+  width: 300px;
+  background-color: #353535;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 20px;
+  .upper,
+  .lower {
+    width: 100%;
+    height: 20%;
+    .menu-row {
+      font-size: 32px;
+      padding: 20px;
+    }
+  }
+  .main {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .menu-collapse {
+    font-size: 32px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
+.btn {
+  width: 200px;
+  height: 80px;
+  display: block;
+}

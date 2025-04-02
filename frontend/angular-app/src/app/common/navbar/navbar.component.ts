@@ -26,4 +26,7 @@ export class NavbarComponent implements OnInit {
   goToRegister(){
     this.router.navigate(['/register']);
   }
+  goToMyDecks(){
+    this.router.navigate(['/my-decks'])
+  }
 }

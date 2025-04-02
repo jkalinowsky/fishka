@@ -1,4 +1,5 @@
 <div class="wrapper">
+  <app-navbar></app-navbar>
   <div class="upper">
     <span (click)="goBackHome()" class="goBackHome"
       ><-- Wróć na stronę główną
@@ -14,6 +15,10 @@
       class="password"
       [(ngModel)]="password_prop"
     />
-    <app-button [value]="'Zaloguj się'" [action]="login"></app-button>
+    <app-button
+      class="btn"
+      [value]="'Zaloguj się'"
+      [action]="login"
+    ></app-button>
   </div>
 </div>

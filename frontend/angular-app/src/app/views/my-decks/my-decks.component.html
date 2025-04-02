@@ -1,1 +1,25 @@
-<p>my-decks works!</p>
+<div class="wrapper">
+  <div class="side-menu">
+    <div class="upper">
+      <div class="menu-collapse" (click)="changeSideMenuState()">Z</div>
+    </div>
+    <div class="main">
+      <div class="menu-row">
+        <app-button class="btn" [value]="'whaaatt'"></app-button>
+      </div>
+      <div class="menu-row">
+        <app-button class="btn" [value]="'whaaatt'"></app-button>
+      </div>
+      <div class="menu-row">
+        <app-button class="btn" [value]="'whaaatt'"></app-button>
+      </div>
+      <div class="menu-row">
+        <app-button class="btn" [value]="'whaaatt'"></app-button>
+      </div>
+    </div>
+    <div class="lower"></div>
+  </div>
+  <main>
+    <app-navbar />
+  </main>
+</div>

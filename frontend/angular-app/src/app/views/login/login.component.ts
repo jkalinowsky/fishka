@@ -3,10 +3,11 @@ import { AuthStateService } from '../../services/auth-state.service';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ButtonComponent } from '../../common/button/button.component';
+import { NavbarComponent } from '../../common/navbar/navbar.component';
 
 @Component({
   selector: 'app-login',
-  imports: [FormsModule, ButtonComponent],
+  imports: [FormsModule, ButtonComponent, NavbarComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
