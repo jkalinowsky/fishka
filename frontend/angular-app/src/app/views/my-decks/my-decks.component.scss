@@ -2,10 +2,59 @@
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 100%;
   color: #f1f1f1;
   main {
     width: calc(100% - 300px);
+  }
+  main {
+    .input-search {
+      background-color: #404040;
+      width: 100%;
+      height: 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      position: relative;
+      z-index: 999;
+      input {
+        width: 50%;
+        height: 50px;
+        border: none;
+        background-color: #ababab;
+      }
+    }
+    height: 100vh;
+    .folder-container {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: calc(100% - 250px);
+      padding: 50px;
+      overflow: scroll;
+      box-sizing: border-box;
+      .row {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 300px;
+        margin-bottom: 50px;
+        flex-shrink: 0;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+    .folder {
+      background-color: #f1f1f1;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      border-radius: 20px;
+      width: 100%;
+      height: 100%;
+      margin-left: 25px;
+      margin-right: 25px;
+      position: relative;
+      z-index: 998;
+    }
   }
 }
 .side-menu {

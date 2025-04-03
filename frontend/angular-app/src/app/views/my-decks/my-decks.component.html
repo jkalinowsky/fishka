@@ -1,9 +1,9 @@
 <div class="wrapper">
-  <div class="side-menu">
+  <div class="side-menu" [@hiddenShown]="menuState">
     <div class="upper">
-      <div class="menu-collapse" (click)="changeSideMenuState()">Z</div>
+      <div class="menu-collapse" (click)="changeState()">Z</div>
     </div>
-    <div class="main">
+    <div class="main" [@hideMenuContent]="menuContentState">
       <div class="menu-row">
         <app-button class="btn" [value]="'whaaatt'"></app-button>
       </div>
@@ -21,5 +21,34 @@
   </div>
   <main>
     <app-navbar />
+    <div class="input-search">
+      <input type="text" placeholder="Wyszukaj folder po nazwie..." />
+    </div>
+    <div class="folder-container">
+      <div class="row">
+        <div class="folder"></div>
+        <div class="folder"></div>
+        <div class="folder"></div>
+        <div class="folder"></div>
+      </div>
+      <div class="row">
+        <div class="folder"></div>
+        <div class="folder"></div>
+        <div class="folder"></div>
+        <div class="folder"></div>
+      </div>
+      <div class="row">
+        <div class="folder"></div>
+        <div class="folder"></div>
+        <div class="folder"></div>
+        <div class="folder"></div>
+      </div>
+      <div class="row">
+        <div class="folder"></div>
+        <div class="folder"></div>
+        <div class="folder"></div>
+        <div class="folder"></div>
+      </div>
+    </div>
   </main>
 </div>
