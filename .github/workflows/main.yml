@@ -18,7 +18,8 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /sciezka/do/twojego/projektu
-            git pull origin main
-            docker-compose down
-            docker-compose up -d
+            cd ~/fishka/fishka
+            git pull origin devel
+            docker-compose pull
+            docker-compose down --remove-orphans
+            docker-compose up -d --build
