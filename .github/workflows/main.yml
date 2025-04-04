@@ -1,0 +1,25 @@
+name: Deploy to Server via VPN
+
+on:
+  push:
+    branches: [ "devel" ]
+
+jobs:
+  deploy:
+    runs-on: [self-hosted, linux]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v0.1.8
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd ~/fishka/fishka
+            git pull origin devel
+            docker-compose pull
+            docker-compose down --remove-orphans
+            docker-compose up -d --build
