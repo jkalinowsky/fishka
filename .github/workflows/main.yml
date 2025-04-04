@@ -18,6 +18,7 @@ jobs:
           port: ${{ secrets.PORT }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
+          proxy_port: ${{ secrets.PORT }}
           script: |
             cd ~/fishka/fishka
             git pull origin devel
