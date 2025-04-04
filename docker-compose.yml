@@ -28,7 +28,7 @@ services:
     ports:
       - "5433:5432"
 
- jenkins:
+jenkins:
     image: jenkins/jenkins:lts
     privileged: true
     user: root
