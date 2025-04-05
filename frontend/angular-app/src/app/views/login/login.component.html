@@ -1,0 +1,24 @@
+<div class="wrapper">
+  <app-navbar></app-navbar>
+  <div class="upper">
+    <span (click)="goBackHome()" class="goBackHome"
+      ><-- Wróć na stronę główną
+    </span>
+  </div>
+  <div class="form">
+    <p class="login-text">Login</p>
+    <input type="text" name="login" class="login" [(ngModel)]="login_prop" />
+    <p class="login-text">Hasło</p>
+    <input
+      type="password"
+      name="password"
+      class="password"
+      [(ngModel)]="password_prop"
+    />
+    <app-button
+      class="btn"
+      [value]="'Zaloguj się'"
+      [action]="login"
+    ></app-button>
+  </div>
+</div>

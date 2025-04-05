@@ -1,0 +1,31 @@
+.wrapper {
+  min-height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  color: #f1f1f1;
+  .header {
+    min-height: 150px;
+    width: 100%;
+    background-color: #353535;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+  }
+  .body {
+    display: flex;
+    flex-direction: column;
+    margin: 40px;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    .upper {
+      font-size: 2rem;
+      margin-bottom: 40px;
+    }
+    .lower {
+      font-size: 4rem;
+    }
+  }
+}
