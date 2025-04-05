@@ -10,4 +10,4 @@ EXPOSE 4200
 CMD ["npm", "start"]
 
 FROM development AS test
-CMD ["npm", "run", "test:ci"]
+CMD ["npm", "run", "test"]
