@@ -5,7 +5,9 @@ from dotenv import load_dotenv
 from pathlib import Path
 import os
 
-env_path = Path('/app/.env')
+is_testing = os.getenv("TESTING", "False").lower() == 'true'
+env_path = Path('/app/.env.test' if is_testing else '/app/.env')
+
 
 load_dotenv(dotenv_path=env_path)
 

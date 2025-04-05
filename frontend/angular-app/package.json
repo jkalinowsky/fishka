@@ -8,6 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:frontend": "node dist/frontend/server/server.mjs"
+    "test:ci": "ng test --watch=false --browser=Chromeheadless --code-coverage"
   },
   "private": true,
   "dependencies": {

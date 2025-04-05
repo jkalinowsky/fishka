@@ -5,6 +5,33 @@ on:
     branches: [ "devel" ]
 
 jobs:
+  test:
+    runs-on: [self-hosted, linux]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Run Tests
+        uses: appleyboy/ssh-action@v0.1.8
+        with:
+          host: ${{ secrets.HOST }}
+          port: ${{ secrets.PORT }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          proxy_port: ${{ secrets.PORT }}
+          script: |
+            cd ~/fishka/fishka
+            git pull origin devel
+
+            docker-compose -f docker-compose.test.yml build backend
+            docker-compose -f docker-compose.test.yml up -d test_db
+            docker-compose -f docker-compose.test.yml run --rm backend pytest || exit 1
+
+            docker-compose -f docker-compose.test.yml build frontend
+            docker-compose -f docker-compose.test.yml run --rm frontend npm run test:ci || exit 1
+
+            docker-compose -f docker-compose.test.yml down --volumes --remove-orphans
+
+
   deploy:
     runs-on: [self-hosted, linux]
     steps:
