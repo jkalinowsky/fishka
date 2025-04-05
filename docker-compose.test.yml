@@ -9,6 +9,7 @@ services:
       - ./backend:/app
     environment:
       - TESTING=true
+      - PYTHONPATH=/app
     depends_on:
       - test_db
 
