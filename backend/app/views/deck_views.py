@@ -8,20 +8,34 @@ from app.services.temp_user_service import check_access
 
 router = APIRouter()
 
+<<<<<<< HEAD
 async def _validate_access(request: Request, db: Session = Depends(get_db)):
     data = await request.json()
 
+=======
+async def validate_access(request: Request, db: Session = Depends(get_db)):
+    data = await request.json()
+    print(data)
+>>>>>>> feat/fastApi-tests
     if not data or not 'session_id' in data or not 'folder_id' in data:
         raise HTTPException(status_code=400, detail="No session id or folder id.")
 
     has_access, _ = check_access(db, data['session_id'], data['folder_id'])
+<<<<<<< HEAD
+=======
+    print(has_access)
+>>>>>>> feat/fastApi-tests
     if not has_access:
         raise HTTPException(status_code=403, detail="You do not have permission to perform this action.")
 
     return data
 
 @router.post("/create-deck")
+<<<<<<< HEAD
 async def create_deck(request: Request, db: Session = Depends(get_db), data: dict = Depends(_validate_access)):
+=======
+async def create_deck(request: Request, db: Session = Depends(get_db), data: dict = Depends(validate_access)):
+>>>>>>> feat/fastApi-tests
     if not data or 'name' not in data or 'flashcards' not in data:
         raise HTTPException(status_code=400, detail="Invalid data format.")
 
@@ -32,7 +46,11 @@ async def create_deck(request: Request, db: Session = Depends(get_db), data: dic
     return JSONResponse(content={"Message": "Ok"}, status_code=201)
 
 @router.get("/deck/find")
+<<<<<<< HEAD
 async def find_deck(request: Request, name: str, db: Session = Depends(get_db), data: dict = Depends(_validate_access)):
+=======
+async def find_deck(request: Request, name: str, db: Session = Depends(get_db), data: dict = Depends(validate_access)):
+>>>>>>> feat/fastApi-tests
     decks = find_decks_by_name(name, db)
 
     if not decks:
@@ -43,7 +61,11 @@ async def find_deck(request: Request, name: str, db: Session = Depends(get_db), 
     })
 
 @router.get("/deck")
+<<<<<<< HEAD
 async def get_deck(request: Request, id: int, db: Session = Depends(get_db), data: dict = Depends(_validate_access)):
+=======
+async def get_deck(request: Request, id: int, db: Session = Depends(get_db), data: dict = Depends(validate_access)):
+>>>>>>> feat/fastApi-tests
     if not id:
         raise HTTPException(status_code=400, detail="No id provided.")
 
@@ -55,7 +77,11 @@ async def get_deck(request: Request, id: int, db: Session = Depends(get_db), dat
     return JSONResponse(content=deck, status_code=200)
 
 @router.post("/deck/remove")
+<<<<<<< HEAD
 async def remove_deck(request: Request, id: int, db: Session = Depends(get_db), data: dict = Depends(_validate_access)):
+=======
+async def remove_deck(request: Request, id: int, db: Session = Depends(get_db), data: dict = Depends(validate_access)):
+>>>>>>> feat/fastApi-tests
     if not id:
         raise HTTPException(status_code=400, detail="No id provided.")
 
