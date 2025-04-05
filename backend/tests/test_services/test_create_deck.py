@@ -8,6 +8,7 @@ from app.views.deck_views import validate_access
 from app.services.deck_service import create_deck_service
 from app.services.temp_user_service import check_access
 from sqlalchemy.orm import Session
+from app.models import Folder
 
 @pytest.fixture
 def client():
@@ -42,14 +43,26 @@ def mock_create_deck_service():
     with patch('app.services.deck_service.create_deck_service') as mock:
         yield mock
 
-def test_create_deck_valid(client, mock_check_access, mock_validate_access, mock_create_deck_service):
+@pytest.fixture
+def seed_folder(mock_db):
+    folder = Folder(
+        id=1,
+        name="Test Folder",
+        access_id="valid_access_id",
+        hashed_password="hashed_pw"
+    )
+    mock_db.add(folder)
+    mock_db.commit()
+    return folder
+
+def test_create_deck_valid(client, mock_check_access, mock_validate_access, mock_create_deck_service, seed_folder):
     mock_create_deck_service.return_value = (True, None)
 
     request_data = {
         'name': '<NAME>',
         'flashcards': [],
         'session_id': 'valid_session_id',
-        'folder_id': 1,
+        'folder_id': seed_folder.id,
     }
 
     response = client.post("/create-deck", json=request_data)
