@@ -6,3 +6,4 @@ pathlib
 psycopg2-binary
 passlib
 pydantic
+httpx
