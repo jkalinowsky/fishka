@@ -33,6 +33,7 @@ jobs:
 
 
   deploy:
+    needs: test
     runs-on: [self-hosted, linux]
     steps:
       - name: Checkout code
