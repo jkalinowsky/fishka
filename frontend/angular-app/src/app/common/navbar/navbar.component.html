@@ -1,0 +1,17 @@
+<div class="wrapper">
+  <div class="left">
+    <div (click)="goHome()" class="logo">FISHKA</div>
+    <div (click)="goToMyDecks()" class="my-decks">MOJE DECKI</div>
+    <div class="find-decks">ZNAJDZ DECKI</div>
+  </div>
+  <div class="right">
+    <span *ngIf="isLoggedIn" class="logged">
+      <div class="profile">TWOJ PROFIL</div>
+      <div class="setting">USTAWIENIA</div>
+    </span>
+    <span *ngIf="!isLoggedIn" class="not_logged">
+      <div (click)="goToLogin()" class="btn login">ZALOGUJ SIĘ</div>
+      <div (click)="goToRegister()" class="btn register">ZAREJESTRUJ SIĘ</div>
+    </span>
+  </div>
+</div>

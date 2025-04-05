@@ -28,5 +28,20 @@ services:
     ports:
       - "5433:5432"
 
+  jenkins:
+      image: jenkins/jenkins:lts
+      privileged: true
+      user: root
+      ports:
+        - "8080:8080"
+        - "50000:50000"
+      volumes:
+        - jenkins_home:/var/jenkins_home
+        - /var/run/docker.sock:/var/run/docker.sock
+        - ./jenkins_config:/tmp/jenkins_config
+        - ./backend:/var/jenkins_home/backend
+        - ./frontend:/var/jenkins_home/frontend
+
 volumes:
   db_data:
+  jenkins_home:
